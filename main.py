@@ -156,16 +156,17 @@ def login(email, password):
 
 
 if __name__ == '__main__':
-    print("==========================================================================================")
-    print("\t\t\t\t\tOverwatch 2 Beta Sign-up Script")
-    print("\t\t\t\t\t\t\tnas4547")
-    print("==========================================================================================")
+    print("=====================================")
+    print("=  Overwatch 2 Beta Sign-up Script  =")
+    print("=              nas4547              =")
+    print("=====================================")
     print("Attempting to read login credentials from file...")
     readEmails()
     readPasswords()
     readSQ()
-    if emailCount != passwordCount:
-        print("Failed to read login credentials! Check emails.txt and passwords.txt")
+    if emailCount != passwordCount or emailCount == 0:
+        print("Could not read login credentials! Check emails.txt and passwords.txt")
+        driver.close()
         quit()
     else:
         print("Successfully read " + str(emailCount) + " email/password combinations.")
