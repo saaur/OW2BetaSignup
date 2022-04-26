@@ -1,5 +1,6 @@
 # Overwatch 2 Beta Signup
 # Author: @nas4547
+import sys
 
 import selenium
 import pyautogui as pg
@@ -196,7 +197,7 @@ if __name__ == '__main__':
     if emailCount != passwordCount or emailCount == 0:
         print("Could not read login credentials! Check emails.txt and passwords.txt")
         driver.close()
-        quit()
+        sys.exit()
     else:
         print("Successfully read " + str(emailCount) + " email/password combinations.")
         convert()
