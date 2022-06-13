@@ -1,7 +1,7 @@
 # Overwatch 2 Beta Signup
-# Author: @nas4547
-import sys
+# Author: n@xlpvyxj.xyz
 
+import sys
 import selenium
 import pyautogui as pg
 from selenium import webdriver
@@ -125,7 +125,7 @@ def login(email, password):
     global counter
     try:
         # Click the login button on the opt-in page.
-        loginButton = WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/nav[2]/div[2]/div[2]/div/a[1]"))).click()
 
         # Enter the email on the log-in page.
@@ -143,7 +143,7 @@ def login(email, password):
         passwordField.send_keys(str(password))
 
         # Continue to log-in
-        loginButton2 = WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div[2]/div/form/div[2]/button"))).click()
 
         ##############################################################################
@@ -152,17 +152,17 @@ def login(email, password):
         ##############################################################################
         time.sleep(2)
         if "Security Check" in driver.page_source:
-            toggle = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
                 (By.XPATH, "/html/body/div/div/div/div/form/div[1]/div/div/div/span[2]"))).click()
-            secretQuestion = WebDriverWait(driver, 10).until(EC.presence_of_element_located(
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located(
                 (By.XPATH, "/html/body/div/div/div/div/form/div[1]/div/div/div/div/div[2]"))).click()
-            submit = WebDriverWait(driver, 10).until(
+            WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/form/div[2]/button"))).click()
-            answer = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
                 (By.XPATH, "/html/body/div/div/div/div/div/form/div[1]/div/div/input"))).send_keys(
                 str(emailsWithKeys[email]))
             time.sleep(11)
-            submitCaptcha = WebDriverWait(driver, 1).until(
+            WebDriverWait(driver, 1).until(
                 EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/form/div[3]/button"))).click()
 
             # Captcha / security question should be solved by now.
@@ -187,8 +187,8 @@ def login(email, password):
 
 if __name__ == '__main__':
     print("=====================================")
-    print("=  Overwatch 2 Beta Sign-up Script  =")
-    print("=              nas4547              =")
+    print("=  Overwatch 2 Beta Sign-up Tool    =")
+    print("=              xlpvyxj              =")
     print("=====================================")
     print("Attempting to read login credentials from file...")
     readEmails()
@@ -201,5 +201,5 @@ if __name__ == '__main__':
     else:
         print("Successfully read " + str(emailCount) + " email/password combinations.")
         convert()
-        time.sleep(1);
+        time.sleep(1)
         runScript()
